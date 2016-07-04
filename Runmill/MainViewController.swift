@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Runmill
 //
 //  Created by Matt Bettinson on 2016-07-04.
@@ -20,6 +20,7 @@ class MainViewController: UITableViewController {
 	
 	override func viewWillAppear(animated: Bool) {
 		
+		print ("Hey!")
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
 		
@@ -29,6 +30,7 @@ class MainViewController: UITableViewController {
 		} catch {
 			print("Could not fetch runs")
 		}
+		tableView.reloadData()
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,15 +39,19 @@ class MainViewController: UITableViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "Add Run" {
-			
+			let addRunNavigationController = segue.destinationViewController as! UINavigationController
+			let addRunViewController = addRunNavigationController.topViewController as! AddRunViewController
+			addRunViewController.runs = runs
 		}
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+		
 		let run = runs[indexPath.row]
-		cell!.textLabel?.text = run.valueForKey("date") as? String
-		return cell!
+		let date = run.valueForKey("date")
+		cell.textLabel?.text = "This is a run! I will figure out how to represent dates eventually..."
+		return cell
 	}
 
     override func didReceiveMemoryWarning() {

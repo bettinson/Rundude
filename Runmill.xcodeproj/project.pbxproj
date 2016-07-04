@@ -14,6 +14,8 @@
 		BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */; };
 		BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */; };
 		BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */; };
+		BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */; };
+		BBE08F0C1D2B06ED00D22E4A /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F0A1D2B06ED00D22E4A /* Run.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runs.xcdatamodel; sourceTree = "<group>"; };
 		BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
+		BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BBE08F0A1D2B06ED00D22E4A /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */,
 				BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */,
 				BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */,
+				BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */,
+				BBE08F0A1D2B06ED00D22E4A /* Run.swift */,
 				BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */,
 				BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */,
 			);
@@ -142,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB01ADF31D2ACEA4004EE2D0 /* MainViewController.swift in Sources */,
+				BBE08F0C1D2B06ED00D22E4A /* Run.swift in Sources */,
 				BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */,
+				BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */,
 				BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */,
 				BB01ADF11D2ACEA4004EE2D0 /* AppDelegate.swift in Sources */,
 			);
