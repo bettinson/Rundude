@@ -49,8 +49,17 @@ class MainViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 		
 		let run = runs[indexPath.row]
-		let date = run.valueForKey("date")
-		cell.textLabel?.text = "This is a run! I will figure out how to represent dates eventually..."
+		
+		//Should always have a date
+		let cellDate = run.valueForKey("date") as! NSDate
+		
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.locale = NSLocale.currentLocale()
+		dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+		
+		var convertedDate = dateFormatter.stringFromDate(cellDate)
+		
+		cell.textLabel?.text = convertedDate
 		return cell
 	}
 
