@@ -8,30 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		BB01ADF11D2ACEA4004EE2D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01ADF01D2ACEA4004EE2D0 /* AppDelegate.swift */; };
-		BB01ADF31D2ACEA4004EE2D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01ADF21D2ACEA4004EE2D0 /* ViewController.swift */; };
+		BB01ADF31D2ACEA4004EE2D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01ADF21D2ACEA4004EE2D0 /* MainViewController.swift */; };
 		BB01ADF61D2ACEA4004EE2D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */; };
-		BB01ADF91D2ACEA4004EE2D0 /* Runmill.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB01ADF71D2ACEA4004EE2D0 /* Runmill.xcdatamodeld */; };
 		BB01ADFB1D2ACEA4004EE2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */; };
 		BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */; };
-		BB01AE141D2AD23A004EE2D0 /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01AE121D2AD23A004EE2D0 /* Run+CoreDataProperties.swift */; };
-		BB01AE151D2AD23A004EE2D0 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01AE131D2AD23A004EE2D0 /* Run.swift */; };
-		BB01AE171D2AD2D3004EE2D0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01AE161D2AD2D3004EE2D0 /* CoreDataStack.swift */; };
-		BB81555F1D2AD4C000AB613D /* RunStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81555E1D2AD4C000AB613D /* RunStore.swift */; };
+		BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */; };
+		BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB01ADED1D2ACEA4004EE2D0 /* Runmill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runmill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB01ADF01D2ACEA4004EE2D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB01ADF21D2ACEA4004EE2D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		BB01ADF21D2ACEA4004EE2D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		BB01ADF51D2ACEA4004EE2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BB01ADF81D2ACEA4004EE2D0 /* Runmill.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runmill.xcdatamodel; sourceTree = "<group>"; };
 		BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB01ADFD1D2ACEA4004EE2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB01AE121D2AD23A004EE2D0 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB01AE131D2AD23A004EE2D0 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
-		BB01AE161D2AD2D3004EE2D0 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		BB81555E1D2AD4C000AB613D /* RunStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunStore.swift; sourceTree = "<group>"; };
+		BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runs.xcdatamodel; sourceTree = "<group>"; };
+		BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,16 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				BB01ADF01D2ACEA4004EE2D0 /* AppDelegate.swift */,
-				BB01ADF21D2ACEA4004EE2D0 /* ViewController.swift */,
+				BB01ADF21D2ACEA4004EE2D0 /* MainViewController.swift */,
+				BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */,
 				BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */,
 				BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */,
+				BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */,
 				BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */,
 				BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */,
-				BB01ADF71D2ACEA4004EE2D0 /* Runmill.xcdatamodeld */,
-				BB81555E1D2AD4C000AB613D /* RunStore.swift */,
-				BB01AE121D2AD23A004EE2D0 /* Run+CoreDataProperties.swift */,
-				BB01AE131D2AD23A004EE2D0 /* Run.swift */,
-				BB01AE161D2AD2D3004EE2D0 /* CoreDataStack.swift */,
 			);
 			path = Runmill;
 			sourceTree = "<group>";
@@ -150,13 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB01ADF31D2ACEA4004EE2D0 /* ViewController.swift in Sources */,
-				BB81555F1D2AD4C000AB613D /* RunStore.swift in Sources */,
-				BB01ADF91D2ACEA4004EE2D0 /* Runmill.xcdatamodeld in Sources */,
+				BB01ADF31D2ACEA4004EE2D0 /* MainViewController.swift in Sources */,
+				BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */,
+				BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */,
 				BB01ADF11D2ACEA4004EE2D0 /* AppDelegate.swift in Sources */,
-				BB01AE171D2AD2D3004EE2D0 /* CoreDataStack.swift in Sources */,
-				BB01AE151D2AD23A004EE2D0 /* Run.swift in Sources */,
-				BB01AE141D2AD23A004EE2D0 /* Run+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +262,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mb.Runmill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Runmill-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -288,7 +275,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mb.Runmill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Runmill-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -316,13 +302,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BB01ADF71D2ACEA4004EE2D0 /* Runmill.xcdatamodeld */ = {
+		BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BB01ADF81D2ACEA4004EE2D0 /* Runmill.xcdatamodel */,
+				BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */,
 			);
-			currentVersion = BB01ADF81D2ACEA4004EE2D0 /* Runmill.xcdatamodel */;
-			path = Runmill.xcdatamodeld;
+			currentVersion = BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */;
+			name = Runs.xcdatamodeld;
+			path = ../Runs.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
