@@ -12,6 +12,7 @@
 		BB01ADF61D2ACEA4004EE2D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */; };
 		BB01ADFB1D2ACEA4004EE2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */; };
 		BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */; };
+		BB0C64A71D2CB5490018DC28 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
 		BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */; };
 		BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */; };
 		BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */; };
@@ -26,6 +27,7 @@
 		BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB01ADFD1D2ACEA4004EE2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runs.xcdatamodel; sourceTree = "<group>"; };
 		BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 		BB01ADE41D2ACEA4004EE2D0 = {
 			isa = PBXGroup;
 			children = (
+				BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */,
 				BB01ADEF1D2ACEA4004EE2D0 /* Runmill */,
 				BB01ADEE1D2ACEA4004EE2D0 /* Products */,
 			);
@@ -149,6 +152,7 @@
 			files = (
 				BB01ADF31D2ACEA4004EE2D0 /* MainViewController.swift in Sources */,
 				BBE08F0C1D2B06ED00D22E4A /* Run.swift in Sources */,
+				BB0C64A71D2CB5490018DC28 /* TimeFormatter.swift in Sources */,
 				BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */,
 				BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */,
 				BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */,

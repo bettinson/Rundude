@@ -20,7 +20,7 @@ class MainViewController: UITableViewController {
 	
 	override func viewWillAppear(animated: Bool) {
 		
-		print ("Hey!")
+		
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
 		
@@ -30,7 +30,7 @@ class MainViewController: UITableViewController {
 		} catch {
 			print("Could not fetch runs")
 		}
-		tableView.reloadData()
+		sortListAscending()
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,23 +51,28 @@ class MainViewController: UITableViewController {
 		let run = runs[indexPath.row]
 		
 		//Should always have a date
+		//Better to store as date and decode each time I think. More flexible with graph views
+		
 		let cellDate = run.valueForKey("date") as! NSDate
 		
 		let dateFormatter = NSDateFormatter()
 		dateFormatter.locale = NSLocale.currentLocale()
 		dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
 		
-		var convertedDate = dateFormatter.stringFromDate(cellDate)
+		let convertedDate = dateFormatter.stringFromDate(cellDate)
 		
 		cell.textLabel?.text = convertedDate
 		return cell
+	}
+	
+	func sortListAscending() {
+		runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
+		tableView.reloadData()
 	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-
 }
 

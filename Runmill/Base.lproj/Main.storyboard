@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -65,9 +66,98 @@
                         <viewControllerLayoutGuide type="bottom" id="QfI-ed-Fuw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TFj-el-QUq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8v-d7-5dK">
+                                <rect key="frame" x="20" y="130" width="154" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="154" id="YQi-BJ-iu7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YQi-BJ-iu7"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-ig-3L1">
+                                <rect key="frame" x="201" y="130" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh4-bS-n6F">
+                                <rect key="frame" x="71" y="101" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-VC-xTt">
+                                <rect key="frame" x="223" y="100" width="79" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faV-jm-BNH">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmo-DO-T2r">
+                                <rect key="frame" x="0.0" y="195" width="375" height="42"/>
+                                <color key="backgroundColor" red="0.10285976228480719" green="0.36629053647426174" blue="0.6090068717277487" alpha="0.71947030141843971" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="SCw-Co-UM6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" red="1" green="0.98941803689999996" blue="0.97594386099999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit date"/>
+                                <connections>
+                                    <action selector="editDate:" destination="NUd-Lq-Ltp" eventType="touchUpInside" id="8I6-Uc-diB"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iYO-yT-fn6">
+                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                                <date key="date" timeIntervalSinceReferenceDate="489466664.62176698">
+                                    <!--2016-07-06 02:57:44 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="leading" secondItem="TFj-el-QUq" secondAttribute="leadingMargin" constant="4" id="5aT-1i-faz"/>
+                            <constraint firstItem="Qh4-bS-n6F" firstAttribute="leading" secondItem="TFj-el-QUq" secondAttribute="leadingMargin" constant="62" id="5xs-2X-SKx"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="top" secondItem="PFJ-fC-PMw" secondAttribute="bottom" constant="66" id="9W0-VF-pLQ"/>
+                            <constraint firstItem="Qh4-bS-n6F" firstAttribute="centerX" secondItem="W8v-d7-5dK" secondAttribute="centerX" id="BRv-ch-1Xd"/>
+                            <constraint firstItem="aBu-ig-3L1" firstAttribute="leading" secondItem="W8v-d7-5dK" secondAttribute="trailing" constant="27" id="C20-bn-REU"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="top" secondItem="Qh4-bS-n6F" secondAttribute="bottom" constant="8" id="FRd-lo-fta"/>
+                            <constraint firstItem="cmo-DO-T2r" firstAttribute="top" secondItem="aBu-ig-3L1" secondAttribute="bottom" constant="77" id="Gcd-yC-qE6"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="centerX" secondItem="TFj-el-QUq" secondAttribute="centerX" id="IGW-8t-9Js"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="width" secondItem="aBu-ig-3L1" secondAttribute="width" id="NVF-ud-xJJ"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="leading" secondItem="TFj-el-QUq" secondAttribute="leadingMargin" constant="4" id="TnL-Nj-qUp"/>
+                            <constraint firstItem="cmo-DO-T2r" firstAttribute="width" secondItem="TFj-el-QUq" secondAttribute="width" id="ddD-Rr-Pbt"/>
+                            <constraint firstItem="aBu-ig-3L1" firstAttribute="centerX" secondItem="TFj-el-QUq" secondAttribute="centerX" id="guX-AZ-bxr"/>
+                            <constraint firstItem="cmo-DO-T2r" firstAttribute="leading" secondItem="TFj-el-QUq" secondAttribute="leading" id="hlk-P0-1bh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aBu-ig-3L1" secondAttribute="trailing" constant="4" id="lct-Y3-yzv"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="width" secondItem="aBu-ig-3L1" secondAttribute="width" id="rXN-sv-Onc"/>
+                            <constraint firstItem="W8v-d7-5dK" firstAttribute="baseline" secondItem="aBu-ig-3L1" secondAttribute="baseline" id="uiG-Fj-Sd7"/>
+                            <constraint firstItem="Qh4-bS-n6F" firstAttribute="leading" secondItem="TFj-el-QUq" secondAttribute="leadingMargin" constant="62" id="wCW-6e-Wcc"/>
+                            <constraint firstItem="aBu-ig-3L1" firstAttribute="leading" secondItem="W8v-d7-5dK" secondAttribute="trailing" constant="27" id="zHj-qb-xBn"/>
+                            <constraint firstItem="Qh4-bS-n6F" firstAttribute="centerX" secondItem="W8v-d7-5dK" secondAttribute="centerX" id="zWd-84-HBo"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BRv-ch-1Xd"/>
+                                <exclude reference="wCW-6e-Wcc"/>
+                                <exclude reference="5aT-1i-faz"/>
+                                <exclude reference="IGW-8t-9Js"/>
+                                <exclude reference="NVF-ud-xJJ"/>
+                                <exclude reference="TnL-Nj-qUp"/>
+                                <exclude reference="guX-AZ-bxr"/>
+                                <exclude reference="zHj-qb-xBn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add Run" id="iC8-WZ-iRa">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7BI-mz-aCk">
@@ -81,10 +171,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="datePicker" destination="iYO-yT-fn6" id="g0O-1d-cWF"/>
+                        <outlet property="distanceTextField" destination="aBu-ig-3L1" id="MCQ-ku-QI2"/>
+                        <outlet property="editDateButton" destination="cmo-DO-T2r" id="ju0-xs-FSm"/>
+                        <outlet property="timeTextField" destination="W8v-d7-5dK" id="VRO-rh-N2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEW-yD-ZwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2075" y="131"/>
+            <point key="canvasLocation" x="2074.5" y="130.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k1Y-OG-Cdg">
