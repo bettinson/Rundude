@@ -19,27 +19,40 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var runs = [NSManagedObject]()
     
-    var formattingPattern = "**:**:**"
     
     override func viewDidLoad() {
         let managedContext = appDelegate.managedObjectContext
 
         timeTextField.becomeFirstResponder()
+        
+        
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
         
-        let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        let currentDate = NSDate()
+        let currentDate = datePicker.date
         
-        datePicker.date = currentDate
+        //This is the culprit
+//        entity?.setValue(currentDate, forKey: "date")
+        
+        let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        run.setValue(currentDate, forKey: "date")
+        
+        
+        
+        timeTextField.addTarget(self, action: Selector("timeTextDidChange"), forControlEvents: UIControlEvents.EditingChanged)
+        
+        
         
         //Set timeText to format as you type
     }
     
-    
-//    func timeTextDidChange() {
-//        if count(timeTextField.text > 0 )
-//    }
-//    
+    func timeTextDidChange() {
+        let formatter = TimeFormatter()
+        
+        if timeTextField.text?.characters.count > 0 {
+            timeTextField.text? = formatter.changeText(timeTextField.text!)
+        }
+    }
     
     @IBAction func editDate(sender: AnyObject) {
         timeTextField.resignFirstResponder()

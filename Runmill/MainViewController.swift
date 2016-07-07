@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class MainViewController: UITableViewController {
+	
 	var runs = [NSManagedObject]()
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class MainViewController: UITableViewController {
     }
 	
 	override func viewWillAppear(animated: Bool) {
-		
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 		
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
@@ -66,7 +66,10 @@ class MainViewController: UITableViewController {
 	}
 	
 	func sortListAscending() {
-		runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
+		//If one of the runs has a date, assumes they all do and they can be sorted
+		if runs.count > 1 && runs[0].valueForKey("date") != nil {
+			runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
+		}
 		tableView.reloadData()
 	}
 
