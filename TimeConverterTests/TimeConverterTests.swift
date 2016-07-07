@@ -33,11 +33,16 @@ class TimeConverterTests: XCTestCase {
     
     func testHoursConversion() {
         //Should convert to "1:10:00"
-        let testMinutesString = "11000"
-        let newString = testFormatter.changeText(testMinutesString)
+        let testHoursString = "11000"
+        let hourString = testFormatter.changeText(testHoursString)
         
-        print ("\(newString)")
-        XCTAssertEqual(newString, "1:10:00")
+        print ("\(hourString)")
+        XCTAssertEqual(hourString, "1:10:00")
+        
+        let testTenHoursString = "101000"
+        let tenHoursString = testFormatter.changeText(testTenHoursString)
+        XCTAssertEqual(tenHoursString, "10:10:00")
+        
     }
     
     func testPerformanceExample() {

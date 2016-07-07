@@ -17,12 +17,15 @@ class TimeFormatter: NSObject {
         super.init()
     }
     
-    func changeText(string: String) -> String {
+    func changeText(changeString: String) -> String {
         //Assumes string is a number
         var finalText = ""
         
-        if string.characters.count > 0 && hourFormattingPattern.characters.count > 0 {
-            let tempString = string as String
+        var newString = changeString
+        newString = String(changeString.characters.reverse())
+        
+        if newString.characters.count > 0 && hourFormattingPattern.characters.count > 0 {
+            let tempString = newString as String
             
             var stop = false
             
@@ -47,6 +50,17 @@ class TimeFormatter: NSObject {
             }
             
         }
+        //Experiment.........
+//        var index = 0
+//        for char in changeString.characters.reverse() {
+//        
+//            let currentPatternChar = (hourFormattingPattern.substringFromIndex(inde)(index))
+//            if String(char) == hourFormattingPattern {
+//            
+//            }
+//        }
+        finalText = String(finalText.characters.reverse())
+        
         return finalText
     }
 }
