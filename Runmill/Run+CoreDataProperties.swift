@@ -15,7 +15,7 @@ import CoreData
 extension Run {
 
     @NSManaged var distance: NSNumber?
-    @NSManaged var timeSeconds: NSNumber?
+    @NSManaged var timeRanString: String?
     @NSManaged var date: NSDate?
 
 }

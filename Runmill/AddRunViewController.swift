@@ -23,30 +23,17 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
     var unformattedTimeText = ""
     
     override func viewDidLoad() {
-        let managedContext = appDelegate.managedObjectContext
-
         timeTextField.becomeFirstResponder()
         timeTextField.delegate = self
         
-        let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
-        
-        let currentDate = datePicker.date
-        
-        //This is the culprit
-//        entity?.setValue(currentDate, forKey: "date")
-        
-        let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        run.setValue(currentDate, forKey: "date")
         
         
-        
-        timeTextField.addTarget(self, action: Selector("timeTextEditingDidChange"), forControlEvents: UIControlEvents.EditingChanged)
-        
-        
+        timeTextField.addTarget(self, action: #selector(AddRunViewController.timeTextEditingDidChange), forControlEvents: UIControlEvents.EditingChanged)
         
         //Set timeText to format as you type
     }
+    
+    //MARK - TextFieldActions
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -69,9 +56,23 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
             
             timeTextField.text? = String(formattedTimeText.characters)
         }
-        
-//        distanceTextField.becomeFirstResponder()
     }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let  char = string.cStringUsingEncoding(NSUTF8StringEncoding)!
+        let isBackSpace = strcmp(char, "\\b")
+        
+        if (isBackSpace == -92) {
+            if textField == timeTextField {
+                timeTextField.text = ""
+                unformattedTimeText = ""
+                formattedTimeText = ""
+            }
+        }
+        return true
+    }
+    
+    //MARK - UI Actions
     
     @IBAction func editDate(sender: AnyObject) {
         timeTextField.resignFirstResponder()
@@ -83,41 +84,53 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         done()
     }
     
+    @IBAction func cancelAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {})
+    }
+    
+    //Mark - Saving methods
+    
     func done() {
         //Get CoreData context
+        var willSave = false
         let managedContext = appDelegate.managedObjectContext
+        var saveSecondsString = ""
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
-        let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
         
         //Get date to save to run
         let savingDate = datePicker.date
         
-        //Get time in seconds
-        
         if (timeTextField.text) != nil {
-            if let seconds = NSNumberFormatter().numberFromString(timeTextField.text!) {
-                
+            if timeTextField.text! != ""{
+                saveSecondsString = timeTextField.text!
+                willSave = true
+            } else {
+                let alert = UIAlertView(title: "No time inputted", message: "Please add the time of your run", delegate: self, cancelButtonTitle: "Okay")
+                alert.show()
+                timeTextField.becomeFirstResponder()
+                willSave = false
             }
         }
         
-        run.setValue(savingDate, forKey: "date")
-        
-        do {
-            try managedContext.save()
-            runs.append(run)
-            print ("\(run)")
-        } catch {
-            print("Error. Idk set a break point or something")
+        if willSave {
+            let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+            run.setValue(savingDate, forKey: "date")
+            run.setValue(saveSecondsString, forKey: "timeRanString")
+            
+            do {
+                try managedContext.save()
+                runs.append(run)
+                print ("\(run)")
+            } catch {
+                print("Error. Idk set a break point or something")
+            }
+            self.dismissViewControllerAnimated(true, completion: {})
         }
         
-        self.dismissViewControllerAnimated(true, completion: {})
         //Save shit
         
     }
     
-    
-    
-    @IBAction func cancelAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
-    }
+
 }
