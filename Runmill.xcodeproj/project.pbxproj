@@ -13,11 +13,23 @@
 		BB01ADFB1D2ACEA4004EE2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */; };
 		BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */; };
 		BB0C64A71D2CB5490018DC28 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
+		BB45785A1D2DD687009FDB79 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */; };
+		BB4578631D2DD83D009FDB79 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
 		BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */; };
 		BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */; };
 		BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */; };
 		BBE08F0C1D2B06ED00D22E4A /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F0A1D2B06ED00D22E4A /* Run.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB45785C1D2DD687009FDB79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB01ADE51D2ACEA4004EE2D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB01ADEC1D2ACEA4004EE2D0;
+			remoteInfo = Runmill;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BB01ADED1D2ACEA4004EE2D0 /* Runmill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runmill.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +39,10 @@
 		BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB01ADFD1D2ACEA4004EE2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
+		BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeFormatter.swift; path = ../TimeFormatter.swift; sourceTree = "<group>"; };
+		BB4578571D2DD687009FDB79 /* TimeConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
+		BB45785B1D2DD687009FDB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runs.xcdatamodel; sourceTree = "<group>"; };
 		BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -42,14 +57,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB4578541D2DD687009FDB79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BB01ADE41D2ACEA4004EE2D0 = {
 			isa = PBXGroup;
 			children = (
-				BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */,
 				BB01ADEF1D2ACEA4004EE2D0 /* Runmill */,
+				BB4578581D2DD687009FDB79 /* TimeConverterTests */,
 				BB01ADEE1D2ACEA4004EE2D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				BB01ADED1D2ACEA4004EE2D0 /* Runmill.app */,
+				BB4578571D2DD687009FDB79 /* TimeConverterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +91,7 @@
 				BB01ADF01D2ACEA4004EE2D0 /* AppDelegate.swift */,
 				BB01ADF21D2ACEA4004EE2D0 /* MainViewController.swift */,
 				BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */,
+				BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */,
 				BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */,
 				BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */,
 				BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */,
@@ -77,6 +101,15 @@
 				BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */,
 			);
 			path = Runmill;
+			sourceTree = "<group>";
+		};
+		BB4578581D2DD687009FDB79 /* TimeConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */,
+				BB45785B1D2DD687009FDB79 /* Info.plist */,
+			);
+			path = TimeConverterTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +132,24 @@
 			productReference = BB01ADED1D2ACEA4004EE2D0 /* Runmill.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BB4578561D2DD687009FDB79 /* TimeConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB45785E1D2DD687009FDB79 /* Build configuration list for PBXNativeTarget "TimeConverterTests" */;
+			buildPhases = (
+				BB4578531D2DD687009FDB79 /* Sources */,
+				BB4578541D2DD687009FDB79 /* Frameworks */,
+				BB4578551D2DD687009FDB79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB45785D1D2DD687009FDB79 /* PBXTargetDependency */,
+			);
+			name = TimeConverterTests;
+			productName = TimeConverterTests;
+			productReference = BB4578571D2DD687009FDB79 /* TimeConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -111,6 +162,10 @@
 				TargetAttributes = {
 					BB01ADEC1D2ACEA4004EE2D0 = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					BB4578561D2DD687009FDB79 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = BB01ADEC1D2ACEA4004EE2D0;
 					};
 				};
 			};
@@ -128,6 +183,7 @@
 			projectRoot = "";
 			targets = (
 				BB01ADEC1D2ACEA4004EE2D0 /* Runmill */,
+				BB4578561D2DD687009FDB79 /* TimeConverterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +196,13 @@
 				BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */,
 				BB01ADFB1D2ACEA4004EE2D0 /* Assets.xcassets in Resources */,
 				BB01ADF61D2ACEA4004EE2D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB4578551D2DD687009FDB79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +223,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB4578531D2DD687009FDB79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB45785A1D2DD687009FDB79 /* TimeConverterTests.swift in Sources */,
+				BB4578631D2DD83D009FDB79 /* TimeFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB45785D1D2DD687009FDB79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB01ADEC1D2ACEA4004EE2D0 /* Runmill */;
+			targetProxy = BB45785C1D2DD687009FDB79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BB01ADF41D2ACEA4004EE2D0 /* Main.storyboard */ = {
@@ -290,6 +370,30 @@
 			};
 			name = Release;
 		};
+		BB45785F1D2DD687009FDB79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TimeConverterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mb.TimeConverterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runmill.app/Runmill";
+			};
+			name = Debug;
+		};
+		BB4578601D2DD687009FDB79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TimeConverterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mb.TimeConverterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runmill.app/Runmill";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -310,6 +414,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BB45785E1D2DD687009FDB79 /* Build configuration list for PBXNativeTarget "TimeConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB45785F1D2DD687009FDB79 /* Debug */,
+				BB4578601D2DD687009FDB79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

@@ -33,7 +33,6 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         datePicker.date = currentDate
         
         //Set timeText to format as you type
-        
     }
     
     
