@@ -19,12 +19,14 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var runs = [NSManagedObject]()
     
+    var formattedTimeText = ""
+    var unformattedTimeText = ""
     
     override func viewDidLoad() {
         let managedContext = appDelegate.managedObjectContext
 
         timeTextField.becomeFirstResponder()
-        
+        timeTextField.delegate = self
         
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
         
@@ -39,19 +41,36 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        timeTextField.addTarget(self, action: Selector("timeTextDidChange"), forControlEvents: UIControlEvents.EditingChanged)
+        timeTextField.addTarget(self, action: Selector("timeTextEditingDidChange"), forControlEvents: UIControlEvents.EditingChanged)
         
         
         
         //Set timeText to format as you type
     }
     
-    func timeTextDidChange() {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == timeTextField { // Switch focus to other text field
+//            timeTextEditingDidEnd()
+        } else if textField == distanceTextField {
+            done()
+        }
+        return true
+    }
+    
+    func timeTextEditingDidChange() {
         let formatter = TimeFormatter()
+        let lastCharacterInputted = timeTextField.text!.characters.last!
+        unformattedTimeText.append(lastCharacterInputted)
         
         if timeTextField.text?.characters.count > 0 {
-            timeTextField.text? = formatter.changeText(timeTextField.text!)
+            formattedTimeText = formatter.changeText(unformattedTimeText)
+            print("\(formattedTimeText)")
+            
+            timeTextField.text? = String(formattedTimeText.characters)
         }
+        
+//        distanceTextField.becomeFirstResponder()
     }
     
     @IBAction func editDate(sender: AnyObject) {
@@ -61,6 +80,10 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneAction(sender: AnyObject) {
+        done()
+    }
+    
+    func done() {
         //Get CoreData context
         let managedContext = appDelegate.managedObjectContext
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
@@ -89,6 +112,7 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         
         self.dismissViewControllerAnimated(true, completion: {})
         //Save shit
+        
     }
     
     

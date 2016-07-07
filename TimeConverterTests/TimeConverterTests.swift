@@ -45,6 +45,45 @@ class TimeConverterTests: XCTestCase {
         
     }
     
+    func testIncremementalChange() {
+        var iterativeString = "1"
+        var iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "1")
+        
+        iterativeString = "10"
+        iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "10")
+        
+        iterativeString = "100"
+        iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "1:00")
+        
+        iterativeString = "1000"
+        iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "10:00")
+        
+        iterativeString = "10001"
+        iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "1:00:01")
+        
+        iterativeString = "100001"
+        iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "10:00:01")
+    }
+    
+    func testRandom() {
+        let iterativeString = "3456"
+        let iterativeComparator = testFormatter.changeText(iterativeString)
+        
+        XCTAssertEqual(iterativeComparator, "34:56")
+    }
+    
     func testShouldDoNothing() {
         let seconds = "10"
         let newString = testFormatter.changeText(seconds)
