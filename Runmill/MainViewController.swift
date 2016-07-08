@@ -46,7 +46,7 @@ class MainViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! RunCell
 		
 		let run = runs[indexPath.row]
 		
@@ -54,6 +54,8 @@ class MainViewController: UITableViewController {
 		//Better to store as date and decode each time I think. More flexible with graph views
 		
 		let cellDate = run.valueForKey("date") as! NSDate
+		let cellDistance = run.valueForKey("distance") as! Double
+		let cellTime = run.valueForKey("timeRanString") as! String
 		
 		let dateFormatter = NSDateFormatter()
 		dateFormatter.locale = NSLocale.currentLocale()
@@ -61,7 +63,10 @@ class MainViewController: UITableViewController {
 		
 		let convertedDate = dateFormatter.stringFromDate(cellDate)
 		
-		cell.textLabel?.text = convertedDate
+		cell.dateLabel?.text = convertedDate
+		cell.distanceLabel?.text = String(cellDistance)
+		cell.timeLabel?.text = cellTime
+		
 		return cell
 	}
 	

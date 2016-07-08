@@ -10,6 +10,28 @@ import Foundation
 import UIKit
 import CoreData
 
+extension String {
+    struct NumberFormatter {
+        static let instance = NSNumberFormatter()
+    }
+    
+    var doubleValue:Double? {
+        return NumberFormatter.instance.numberFromString(self)?.doubleValue
+    }
+}
+
+extension Double {
+    init?(myCustomFormat:String) {
+        guard let
+            standardDouble = Double(myCustomFormat),
+            firstChar: Character? = myCustomFormat.characters.first,
+            lastChar: Character? = myCustomFormat.characters.last
+            where firstChar != "." && lastChar != "."
+            else { return nil }
+        self = standardDouble
+    }
+}
+
 class AddRunViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var distanceTextField: UITextField!
@@ -25,8 +47,6 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         timeTextField.becomeFirstResponder()
         timeTextField.delegate = self
-        
-        
         
         timeTextField.addTarget(self, action: #selector(AddRunViewController.timeTextEditingDidChange), forControlEvents: UIControlEvents.EditingChanged)
         
@@ -95,6 +115,8 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         var willSave = false
         let managedContext = appDelegate.managedObjectContext
         var saveSecondsString = ""
+        var saveDistanceString = ""
+        var saveDistanceDouble = 0.0
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
         
         
@@ -111,12 +133,35 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
                 timeTextField.becomeFirstResponder()
                 willSave = false
             }
+            
+        }
+        
+        if (distanceTextField.text) != nil {
+            if distanceTextField.text! != ""{
+                //TODO: Catch strings like ".101" or "4324132."
+                saveDistanceDouble = Double(myCustomFormat: distanceTextField.text!)!
+                
+                willSave = true
+                
+                if !saveDistanceDouble.isFinite {
+                    let alert = UIAlertView(title: "Invalid distance", message: "Please change the distance of your run", delegate: self, cancelButtonTitle: "Okay")
+                    alert.show()
+                    willSave = false
+                }
+                
+            } else {
+                let alert = UIAlertView(title: "No distance inputted", message: "Please add the distance of your run", delegate: self, cancelButtonTitle: "Okay")
+                alert.show()
+                timeTextField.becomeFirstResponder()
+                willSave = false
+            }
         }
         
         if willSave {
             let run = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
             run.setValue(savingDate, forKey: "date")
             run.setValue(saveSecondsString, forKey: "timeRanString")
+            run.setValue(saveDistanceDouble, forKey: "distance")
             
             do {
                 try managedContext.save()

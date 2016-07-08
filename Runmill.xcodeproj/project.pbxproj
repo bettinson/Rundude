@@ -15,6 +15,7 @@
 		BB45785A1D2DD687009FDB79 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */; };
 		BB4578631D2DD83D009FDB79 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
 		BB4578661D2DF2E6009FDB79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB4578641D2DF2E6009FDB79 /* Main.storyboard */; };
+		BBC4299E1D301741001184BF /* RunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4299D1D301741001184BF /* RunCell.swift */; };
 		BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */; };
 		BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */; };
 		BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */; };
@@ -43,6 +44,7 @@
 		BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
 		BB45785B1D2DD687009FDB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB4578651D2DF2E6009FDB79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBC4299D1D301741001184BF /* RunCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCell.swift; sourceTree = "<group>"; };
 		BBE08F051D2AF2D600D22E4A /* Runs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runs.xcdatamodel; sourceTree = "<group>"; };
 		BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		BBE08F091D2B06ED00D22E4A /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				BB01ADF21D2ACEA4004EE2D0 /* MainViewController.swift */,
 				BBE08F071D2AFC6300D22E4A /* AddRunViewController.swift */,
 				BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */,
+				BBC4299D1D301741001184BF /* RunCell.swift */,
 				BB4578641D2DF2E6009FDB79 /* Main.storyboard */,
 				BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */,
 				BBE08F041D2AF2D600D22E4A /* Runs.xcdatamodeld */,
@@ -219,6 +222,7 @@
 				BB0C64A71D2CB5490018DC28 /* TimeFormatter.swift in Sources */,
 				BBE08F061D2AF2D600D22E4A /* Runs.xcdatamodeld in Sources */,
 				BBE08F0B1D2B06ED00D22E4A /* Run+CoreDataProperties.swift in Sources */,
+				BBC4299E1D301741001184BF /* RunCell.swift in Sources */,
 				BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */,
 				BB01ADF11D2ACEA4004EE2D0 /* AppDelegate.swift in Sources */,
 			);
