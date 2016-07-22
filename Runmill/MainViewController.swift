@@ -12,14 +12,16 @@ import CoreData
 class MainViewController: UITableViewController {
 	
 	var runs = [NSManagedObject]()
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
 	override func viewWillAppear(animated: Bool) {
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		
 		
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
@@ -44,6 +46,24 @@ class MainViewController: UITableViewController {
 			addRunViewController.runs = runs
 		}
 	}
+	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+		let run = runs[indexPath.row]
+		let managedContext = appDelegate.managedObjectContext
+		
+		let done = UITableViewRowAction(style: .Destructive, title: "Delete", handler: { (action, indexPath) in
+			self.tableView.beginUpdates()
+			managedContext.deleteObject(run)
+			self.runs.removeAtIndex(indexPath.row)
+			self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+			self.tableView.endUpdates()
+		})
+		
+		try? managedContext.save()
+		
+		done.backgroundColor = UIColor.redColor()
+		return [done]
+	}
+	
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! RunCell
