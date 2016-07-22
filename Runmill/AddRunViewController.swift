@@ -70,11 +70,16 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         let lastCharacterInputted = timeTextField.text!.characters.last!
         unformattedTimeText.append(lastCharacterInputted)
         
+    
         if timeTextField.text?.characters.count > 0 {
             formattedTimeText = formatter.changeText(unformattedTimeText)
             print("\(formattedTimeText)")
             
             timeTextField.text? = String(formattedTimeText.characters)
+        }
+        
+        if timeTextField.text?.characters.count >= 8 {
+            
         }
     }
     
@@ -115,7 +120,7 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         var willSave = false
         let managedContext = appDelegate.managedObjectContext
         var saveSecondsString = ""
-        var saveDistanceString = ""
+//        var saveDistanceString = ""
         var saveDistanceDouble = 0.0
         let entity = NSEntityDescription.entityForName("Run", inManagedObjectContext: managedContext)
         
@@ -128,8 +133,10 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
                 saveSecondsString = timeTextField.text!
                 willSave = true
             } else {
-                let alert = UIAlertView(title: "No time inputted", message: "Please add the time of your run", delegate: self, cancelButtonTitle: "Okay")
-                alert.show()
+                let alert = UIAlertController(title: "No time inputted", message:"Please add the time of your run", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
+
                 timeTextField.becomeFirstResponder()
                 willSave = false
             }
@@ -144,14 +151,17 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
                 willSave = true
                 
                 if !saveDistanceDouble.isFinite {
-                    let alert = UIAlertView(title: "Invalid distance", message: "Please change the distance of your run", delegate: self, cancelButtonTitle: "Okay")
-                    alert.show()
+                    let alert = UIAlertController(title: "Invalid Distance", message:"Please change the distance of your run", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                    self.presentViewController(alert, animated: true){}
+
                     willSave = false
                 }
                 
             } else {
-                let alert = UIAlertView(title: "No distance inputted", message: "Please add the distance of your run", delegate: self, cancelButtonTitle: "Okay")
-                alert.show()
+                let alert = UIAlertController(title: "No distance inputted", message:"Please add the distance of your run", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
                 timeTextField.becomeFirstResponder()
                 willSave = false
             }

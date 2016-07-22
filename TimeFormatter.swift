@@ -17,8 +17,6 @@ class TimeFormatter: NSObject {
         super.init()
     }
     
-    
-    
     func changeText(changeString: String) -> String {
         //Assumes string is a number
         var finalText = ""

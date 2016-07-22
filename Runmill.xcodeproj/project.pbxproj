@@ -166,9 +166,11 @@
 					BB01ADEC1D2ACEA4004EE2D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = Z8CGBJ42EF;
+						LastSwiftMigration = 0800;
 					};
 					BB4578561D2DD687009FDB79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = BB01ADEC1D2ACEA4004EE2D0;
 					};
 				};
@@ -363,6 +365,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -378,6 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mb.Runmill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -389,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mb.TimeConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runmill.app/Runmill";
 			};
 			name = Debug;
@@ -401,6 +406,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mb.TimeConverterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runmill.app/Runmill";
 			};
 			name = Release;
