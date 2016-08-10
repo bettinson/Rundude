@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class MainViewController: UITableViewController {
+    @IBOutlet weak var addButton: UIBarButtonItem!
 	
 	var runs = [NSManagedObject]()
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -21,8 +22,6 @@ class MainViewController: UITableViewController {
     }
 	
 	override func viewWillAppear(animated: Bool) {
-		
-		
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
 		
@@ -33,6 +32,18 @@ class MainViewController: UITableViewController {
 			print("Could not fetch runs")
 		}
 		sortListAscending()
+	}
+	
+	//Handles animations of new run view icons
+	@IBAction func newButtonTapped(sender: AnyObject) {
+		let screenFrame = UIScreen.mainScreen().bounds
+		let iconSize : CGFloat = 30
+		let newRunView = FloatingButtonView(frame: CGRect(x: (screenFrame.width / 2 ) - (iconSize / 2), y: (screenFrame.height / 2) - (CGFloat(iconSize)), width: iconSize, height: iconSize))
+		self.navigationController?.view.addSubview(newRunView)
+		let darkenView = UIView(frame: screenFrame)
+		darkenView.backgroundColor = UIColor.blackColor()
+		darkenView.alpha = 0.2
+		self.navigationController?.view.addSubview(darkenView)
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +57,7 @@ class MainViewController: UITableViewController {
 			addRunViewController.runs = runs
 		}
 	}
+	
 	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
 		let run = runs[indexPath.row]
 		let managedContext = appDelegate.managedObjectContext
@@ -58,7 +70,13 @@ class MainViewController: UITableViewController {
 			self.tableView.endUpdates()
 		})
 		
-		try? managedContext.save()
+		
+			
+		do {
+			try managedContext.save()
+		} catch _ {
+			print("Save did not work")
+		}
 		
 		done.backgroundColor = UIColor.redColor()
 		return [done]

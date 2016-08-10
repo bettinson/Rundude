@@ -49,8 +49,6 @@ class AddRunViewController: UIViewController, UITextFieldDelegate {
         timeTextField.delegate = self
         
         timeTextField.addTarget(self, action: #selector(AddRunViewController.timeTextEditingDidChange), forControlEvents: UIControlEvents.EditingChanged)
-        
-        //Set timeText to format as you type
     }
     
     //MARK - TextFieldActions
