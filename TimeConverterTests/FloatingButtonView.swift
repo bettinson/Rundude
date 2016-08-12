@@ -10,6 +10,8 @@ import UIKit
 
 class FloatingButtonView: UIView {
     
+    let colour = UIColor.blackColor()
+    
     enum viewRepresenting: Int {
         case EnterRunData = 1
         case NewRun = 2
@@ -18,12 +20,12 @@ class FloatingButtonView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.backgroundColor = UIColor.blackColor()
+        self.backgroundColor = colour
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.blackColor()
+        self.backgroundColor = colour
     }
     
     override func intrinsicContentSize() -> CGSize {

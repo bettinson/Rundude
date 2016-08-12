@@ -36,14 +36,8 @@ class MainViewController: UITableViewController {
 	
 	//Handles animations of new run view icons
 	@IBAction func newButtonTapped(sender: AnyObject) {
-		let screenFrame = UIScreen.mainScreen().bounds
-		let iconSize : CGFloat = 30
-		let newRunView = FloatingButtonView(frame: CGRect(x: (screenFrame.width / 2 ) - (iconSize / 2), y: (screenFrame.height / 2) - (CGFloat(iconSize)), width: iconSize, height: iconSize))
-		self.navigationController?.view.addSubview(newRunView)
-		let darkenView = UIView(frame: screenFrame)
-		darkenView.backgroundColor = UIColor.blackColor()
-		darkenView.alpha = 0.2
-		self.navigationController?.view.addSubview(darkenView)
+		let buttonContainerView = FloatingButtonContainerView(frame: (self.navigationController?.view.frame)!)
+		self.navigationController?.view.addSubview(buttonContainerView)
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,8 +63,6 @@ class MainViewController: UITableViewController {
 			self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
 			self.tableView.endUpdates()
 		})
-		
-		
 			
 		do {
 			try managedContext.save()

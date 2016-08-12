@@ -9,6 +9,7 @@
 import Foundation
 
 class TimeFormatter: NSObject {
+    //Change this however you want
     var hourFormattingPattern = "**:**:**"
     var replacementChar: Character = "*"
     
@@ -50,15 +51,7 @@ class TimeFormatter: NSObject {
             }
             
         }
-        //Experiment.........
-//        var index = 0
-//        for char in changeString.characters.reverse() {
-//        
-//            let currentPatternChar = (hourFormattingPattern.substringFromIndex(inde)(index))
-//            if String(char) == hourFormattingPattern {
-//            
-//            }
-//        }
+        
         finalText = String(finalText.characters.reverse())
         
         return finalText
