@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MainViewController: UITableViewController {
+class MainViewController: UITableViewController, FloatingButtonDelegate {
     @IBOutlet weak var addButton: UIBarButtonItem!
 	
 	var runs = [NSManagedObject]()
@@ -24,7 +24,6 @@ class MainViewController: UITableViewController {
 	override func viewWillAppear(animated: Bool) {
 		let fetchRequest = NSFetchRequest(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
-		
 		do {
 			let results = try managedContext.executeFetchRequest(fetchRequest)
 			runs = results as! [NSManagedObject]
@@ -36,8 +35,10 @@ class MainViewController: UITableViewController {
 	
 	//Handles animations of new run view icons
 	@IBAction func newButtonTapped(sender: AnyObject) {
-		let buttonContainerView = FloatingButtonContainerView(frame: (self.navigationController?.view.frame)!)
-		self.navigationController?.view.addSubview(buttonContainerView)
+		let buttonContainer = FloatingButtonContainer(frame: (self.navigationController?.view.frame)!)
+		buttonContainer.addRunButton!.delegate = self
+		buttonContainer.newRunButton!.delegate = self
+		self.navigationController?.view.addSubview(buttonContainer)
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,6 +107,17 @@ class MainViewController: UITableViewController {
 			runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
 		}
 		tableView.reloadData()
+	}
+	
+	func buttonWasTapped(sender: FloatingButtonDelegate, button: FloatingButton.viewRepresentingOptions) {
+		switch button {
+		case FloatingButton.viewRepresentingOptions.NewRun:
+			// Present new run view
+			print("Switch to new run view")
+		case FloatingButton.viewRepresentingOptions.EnterRunData:
+			// Present add run view
+			print("Switch to add run view")
+		}
 	}
 
     override func didReceiveMemoryWarning() {

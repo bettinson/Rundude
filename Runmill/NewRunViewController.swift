@@ -15,7 +15,6 @@ class NewRunViewController : UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var infoText: UILabel!
     
-    
     var seconds = 0.0
     var distance = 0.0
     var isRunning = false

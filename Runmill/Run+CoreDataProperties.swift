@@ -17,5 +17,6 @@ extension Run {
     @NSManaged var distance: NSNumber?
     @NSManaged var timeRanString: String?
     @NSManaged var date: NSDate?
+    @NSManaged var route: NSObject?
 
 }

@@ -3,9 +3,10 @@
     <entity name="Run" representedClassName=".Run" syncable="YES">
         <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="distance" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="route" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="timeRanString" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Run" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Run" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

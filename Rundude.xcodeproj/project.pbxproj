@@ -12,8 +12,8 @@
 		BB01ADFB1D2ACEA4004EE2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */; };
 		BB01ADFE1D2ACEA4004EE2D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */; };
 		BB0C64A71D2CB5490018DC28 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
-		BB3135EB1D5AAC5400B52546 /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3135E71D5AA69400B52546 /* FloatingButtonView.swift */; };
-		BB429C731D5E1C4E001A772E /* FloatingButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB429C721D5E1C4E001A772E /* FloatingButtonContainerView.swift */; };
+		BB3135EB1D5AAC5400B52546 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3135E71D5AA69400B52546 /* FloatingButton.swift */; };
+		BB429C731D5E1C4E001A772E /* FloatingButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB429C721D5E1C4E001A772E /* FloatingButtonContainer.swift */; };
 		BB429C751D5E2E2F001A772E /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB429C741D5E2E2F001A772E /* NewRunViewController.swift */; };
 		BB45785A1D2DD687009FDB79 /* TimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */; };
 		BB4578631D2DD83D009FDB79 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */; };
@@ -44,8 +44,8 @@
 		BB01ADFD1D2ACEA4004EE2D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeFormatter.swift; path = ../TimeFormatter.swift; sourceTree = "<group>"; };
-		BB3135E71D5AA69400B52546 /* FloatingButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingButtonView.swift; path = ../TimeConverterTests/FloatingButtonView.swift; sourceTree = "<group>"; };
-		BB429C721D5E1C4E001A772E /* FloatingButtonContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButtonContainerView.swift; sourceTree = "<group>"; };
+		BB3135E71D5AA69400B52546 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingButton.swift; path = ../TimeConverterTests/FloatingButton.swift; sourceTree = "<group>"; };
+		BB429C721D5E1C4E001A772E /* FloatingButtonContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButtonContainer.swift; sourceTree = "<group>"; };
 		BB429C741D5E2E2F001A772E /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		BB4578571D2DD687009FDB79 /* TimeConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4578591D2DD687009FDB79 /* TimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterTests.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		BB01ADE41D2ACEA4004EE2D0 = {
 			isa = PBXGroup;
 			children = (
-				BB01ADEF1D2ACEA4004EE2D0 /* Runmill */,
+				BB01ADEF1D2ACEA4004EE2D0 /* Rundude */,
 				BB4578581D2DD687009FDB79 /* TimeConverterTests */,
 				BB01ADEE1D2ACEA4004EE2D0 /* Products */,
 			);
@@ -95,7 +95,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BB01ADEF1D2ACEA4004EE2D0 /* Runmill */ = {
+		BB01ADEF1D2ACEA4004EE2D0 /* Rundude */ = {
 			isa = PBXGroup;
 			children = (
 				BB01ADF01D2ACEA4004EE2D0 /* AppDelegate.swift */,
@@ -104,8 +104,8 @@
 				BB429C741D5E2E2F001A772E /* NewRunViewController.swift */,
 				BB0C64A61D2CB5490018DC28 /* TimeFormatter.swift */,
 				BBC4299D1D301741001184BF /* RunCell.swift */,
-				BB3135E71D5AA69400B52546 /* FloatingButtonView.swift */,
-				BB429C721D5E1C4E001A772E /* FloatingButtonContainerView.swift */,
+				BB3135E71D5AA69400B52546 /* FloatingButton.swift */,
+				BB429C721D5E1C4E001A772E /* FloatingButtonContainer.swift */,
 				BB4578641D2DF2E6009FDB79 /* Main.storyboard */,
 				BB01ADFA1D2ACEA4004EE2D0 /* Assets.xcassets */,
 				BB57ADAD1D42B55A005F4A38 /* Colours.swift */,
@@ -115,6 +115,7 @@
 				BB01ADFC1D2ACEA4004EE2D0 /* LaunchScreen.storyboard */,
 				BB01ADFF1D2ACEA4004EE2D0 /* Info.plist */,
 			);
+			name = Rundude;
 			path = Runmill;
 			sourceTree = "<group>";
 		};
@@ -240,8 +241,8 @@
 				BBE08F081D2AFC6300D22E4A /* AddRunViewController.swift in Sources */,
 				BB429C751D5E2E2F001A772E /* NewRunViewController.swift in Sources */,
 				BB57ADAE1D42B55A005F4A38 /* Colours.swift in Sources */,
-				BB429C731D5E1C4E001A772E /* FloatingButtonContainerView.swift in Sources */,
-				BB3135EB1D5AAC5400B52546 /* FloatingButtonView.swift in Sources */,
+				BB429C731D5E1C4E001A772E /* FloatingButtonContainer.swift in Sources */,
+				BB3135EB1D5AAC5400B52546 /* FloatingButton.swift in Sources */,
 				BB01ADF11D2ACEA4004EE2D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
