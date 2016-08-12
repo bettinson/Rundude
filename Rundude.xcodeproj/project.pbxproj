@@ -187,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BB01ADE81D2ACEA4004EE2D0 /* Build configuration list for PBXProject "Runmill" */;
+			buildConfigurationList = BB01ADE81D2ACEA4004EE2D0 /* Build configuration list for PBXProject "Rundude" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -430,7 +430,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BB01ADE81D2ACEA4004EE2D0 /* Build configuration list for PBXProject "Runmill" */ = {
+		BB01ADE81D2ACEA4004EE2D0 /* Build configuration list for PBXProject "Rundude" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB01AE001D2ACEA4004EE2D0 /* Debug */,

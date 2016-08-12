@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Runmill.xcodeproj">
+      location = "self:/Users/mattbettinson/swift/Runmill/Rundude.xcodeproj">
    </FileRef>
 </Workspace>

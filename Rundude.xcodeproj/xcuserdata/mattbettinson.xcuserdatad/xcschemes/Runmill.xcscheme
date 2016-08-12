@@ -17,7 +17,7 @@
                BlueprintIdentifier = "BB01ADEC1D2ACEA4004EE2D0"
                BuildableName = "Runmill.app"
                BlueprintName = "Runmill"
-               ReferencedContainer = "container:Runmill.xcodeproj">
+               ReferencedContainer = "container:Rundude.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "BB4578561D2DD687009FDB79"
                BuildableName = "TimeConverterTests.xctest"
                BlueprintName = "TimeConverterTests"
-               ReferencedContainer = "container:Runmill.xcodeproj">
+               ReferencedContainer = "container:Rundude.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "BB01ADEC1D2ACEA4004EE2D0"
             BuildableName = "Runmill.app"
             BlueprintName = "Runmill"
-            ReferencedContainer = "container:Runmill.xcodeproj">
+            ReferencedContainer = "container:Rundude.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "BB01ADEC1D2ACEA4004EE2D0"
             BuildableName = "Runmill.app"
             BlueprintName = "Runmill"
-            ReferencedContainer = "container:Runmill.xcodeproj">
+            ReferencedContainer = "container:Rundude.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "BB01ADEC1D2ACEA4004EE2D0"
             BuildableName = "Runmill.app"
             BlueprintName = "Runmill"
-            ReferencedContainer = "container:Runmill.xcodeproj">
+            ReferencedContainer = "container:Rundude.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
