@@ -45,8 +45,6 @@ class FloatingButtonContainer: UIView, UIGestureRecognizerDelegate {
         self.addSubview(addRunButton!)
         dividerView.transform.a = 0
         
-        
-        
         UIView.animateWithDuration(0.3, animations: {
                 darkenView.alpha = 0.3
                 dividerView.transform.a = 10
@@ -56,8 +54,6 @@ class FloatingButtonContainer: UIView, UIGestureRecognizerDelegate {
         
         
     }
-    
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

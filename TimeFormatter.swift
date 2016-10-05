@@ -47,9 +47,7 @@ class TimeFormatter: NSObject {
                 if formatterIndex >= hourFormattingPattern.endIndex || tempIndex >= tempString.endIndex {
                     stop = true
                 }
-                
             }
-            
         }
         
         finalText = String(finalText.characters.reverse())

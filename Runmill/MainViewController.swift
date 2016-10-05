@@ -45,14 +45,7 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 		return runs.count
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if segue.identifier == "Add Run" {
-			let addRunNavigationController = segue.destinationViewController as! UINavigationController
-			let addRunViewController = addRunNavigationController.topViewController as! AddRunViewController
-			addRunViewController.runs = runs
-		}
-	}
-	
+	//J
 	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
 		let run = runs[indexPath.row]
 		let managedContext = appDelegate.managedObjectContext
@@ -74,7 +67,7 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 		done.backgroundColor = UIColor.redColor()
 		return [done]
 	}
-	
+
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! RunCell
@@ -107,6 +100,14 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 			runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
 		}
 		tableView.reloadData()
+	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "Add Run" {
+			let addRunNavigationController = segue.destinationViewController as! UINavigationController
+			let addRunViewController = addRunNavigationController.topViewController as! AddRunViewController
+			addRunViewController.runs = runs
+		}
 	}
 	
 	func buttonWasTapped(sender: FloatingButtonDelegate, button: FloatingButton.viewRepresentingOptions) {
