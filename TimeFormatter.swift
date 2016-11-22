@@ -34,16 +34,19 @@ class TimeFormatter: NSObject {
             var tempIndex = tempString.startIndex
             
             while !stop {
-                let formattingPatternRange = formatterIndex ..< newString.index(formatterIndex, offsetBy: 1)
+                let formattingPatternRange = formatterIndex ..< hourFormattingPattern.index(after: formatterIndex)
                 if hourFormattingPattern.substring(with: formattingPatternRange) != String (replacementChar) {
                     finalText = finalText.appendingFormat(hourFormattingPattern.substring(with: formattingPatternRange))
-                } else if tempString.characters.count > 0 {
-                    let pureStringRange:Range = tempIndex ..< finalText.index(tempIndex, offsetBy: 1)
+                } else if tempString.characters.count >= 0 {
+                    let pureStringRange:Range = tempIndex ..< tempString.index(after: tempIndex)
                     finalText = finalText.appendingFormat(tempString.substring(with: pureStringRange))
-                    tempIndex = finalText.index(after: tempIndex)
+                    if (finalText.index(after: tempIndex) != finalText.endIndex) {
+                        tempIndex = finalText.index(after: tempIndex)
+                    }
                 }
-                formatterIndex = finalText.index(after: formatterIndex)
-                
+                if (finalText.index(after: formatterIndex) != finalText.endIndex) {
+                    formatterIndex = finalText.index(after: formatterIndex)
+                }
                 if formatterIndex >= hourFormattingPattern.endIndex || tempIndex >= tempString.endIndex {
                     stop = true
                 }
@@ -52,6 +55,6 @@ class TimeFormatter: NSObject {
         
         finalText = String(finalText.characters.reversed())
         
-        return finalText
+        return finalText.substring(to: finalText.index(before: finalText.endIndex)) 
     }
 }
