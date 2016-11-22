@@ -24,7 +24,7 @@ class NewRunViewController : UIViewController, CLLocationManagerDelegate {
     @IBAction func beginRun(sender: AnyObject) {
         if (isRunning == false) {
             startRun()
-            beginEndButton.hidden = true
+            beginEndButton.isHidden = true
         }
     }
     
@@ -32,47 +32,46 @@ class NewRunViewController : UIViewController, CLLocationManagerDelegate {
         var _locationManager = CLLocationManager()
         _locationManager.delegate = self
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        _locationManager.activityType = .Fitness
+        _locationManager.activityType = .fitness
         
         _locationManager.distanceFilter = 10.0
         return _locationManager
     }()
     
     lazy var locations = [CLLocation]()
-    lazy var timer = NSTimer()
+    lazy var timer = Timer()
     
     func startRun() {
         seconds = 0.0
         distance = 0.0
-        locations.removeAll(keepCapacity: false)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self,
-                                                        selector: #selector(NewRunViewController.eachSecond(_:)),
+        locations.removeAll(keepingCapacity: false)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
+                                                        selector: #selector(NewRunViewController.eachSecond),
                                                         userInfo: nil,
                                                         repeats: true)
         startLocationUpdates()
     }
     
     //This delegate method is called every time the location is changed
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations {
             if location.horizontalAccuracy < 20 {
                 if self.locations.count > 0 {
-                    distance += location.distanceFromLocation(self.locations.last!)
+                    distance += location.distance(from: self.locations.last!)
                 }
                 self.locations.append(location)
             }
         }
     }
     
-    func eachSecond(timer: NSTimer) {
+    func eachSecond() {
         seconds += 1
-        let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
-        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
-        let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
+        let secondsQuantity = HKQuantity(unit: HKUnit.second(), doubleValue: seconds)
+        let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: distance)
+        let paceUnit = HKUnit.second().unitDivided(by: HKUnit.meter())
         let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds / distance)
         
-        
-        setInfoText(secondsQuantity, distance: distanceQuantity, pace: paceQuantity)
+        setInfoText(seconds: secondsQuantity, distance: distanceQuantity, pace: paceQuantity)
     }
     
     func setInfoText(seconds: HKQuantity, distance: HKQuantity, pace: HKQuantity) {
@@ -90,13 +89,13 @@ class NewRunViewController : UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer.invalidate()
         print("View is disappearing, time to save run")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         locationManager.requestAlwaysAuthorization()
     }
     

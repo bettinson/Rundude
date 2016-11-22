@@ -13,7 +13,7 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
     @IBOutlet weak var addButton: UIBarButtonItem!
 	
 	var runs = [NSManagedObject]()
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,11 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
-	override func viewWillAppear(animated: Bool) {
-		let fetchRequest = NSFetchRequest(entityName: "Run")
+	override func viewWillAppear(_ animated: Bool) {
+		let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Run")
 		let managedContext = appDelegate.managedObjectContext
 		do {
-			let results = try managedContext.executeFetchRequest(fetchRequest)
+			let results = try managedContext.fetch(fetchRequest)
 			runs = results as! [NSManagedObject]
 		} catch {
 			print("Could not fetch runs")
@@ -41,20 +41,20 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 		self.navigationController?.view.addSubview(buttonContainer)
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return runs.count
 	}
 	
 	//J
-	override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+	func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
 		let run = runs[indexPath.row]
 		let managedContext = appDelegate.managedObjectContext
 		
-		let done = UITableViewRowAction(style: .Destructive, title: "Delete", handler: { (action, indexPath) in
+		let done = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
 			self.tableView.beginUpdates()
-			managedContext.deleteObject(run)
-			self.runs.removeAtIndex(indexPath.row)
-			self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+			managedContext.delete(run)
+			self.runs.remove(at: indexPath.row)
+			self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
 			self.tableView.endUpdates()
 		})
 			
@@ -64,28 +64,28 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 			print("Save did not work")
 		}
 		
-		done.backgroundColor = UIColor.redColor()
+		done.backgroundColor = UIColor.red
 		return [done]
 	}
 
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! RunCell
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! RunCell
 		
 		let run = runs[indexPath.row]
 		
 		//Should always have a date
 		//Better to store as date and decode each time I think. More flexible with graph views
 		
-		let cellDate = run.valueForKey("date") as! NSDate
-		let cellDistance = run.valueForKey("distance") as! Double
-		let cellTime = run.valueForKey("timeRanString") as! String
+		let cellDate = run.value(forKey: "date") as! NSDate
+		let cellDistance = run.value(forKey: "distance") as! Double
+		let cellTime = run.value(forKey: "timeRanString") as! String
 		
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.locale = NSLocale.currentLocale()
-		dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = NSLocale.current
+		dateFormatter.dateStyle = DateFormatter.Style.full
 		
-		let convertedDate = dateFormatter.stringFromDate(cellDate)
+		let convertedDate = dateFormatter.string(from: cellDate as Date)
 		
 		cell.dateLabel?.text = convertedDate
 		cell.distanceLabel?.text = String(cellDistance)
@@ -96,15 +96,15 @@ class MainViewController: UITableViewController, FloatingButtonDelegate {
 	
 	func sortListAscending() {
 		//If one of the runs has a date, assumes they all do and they can be sorted
-		if runs.count > 1 && runs[0].valueForKey("date") != nil {
-			runs.sortInPlace () {($0.valueForKey("date") as! NSDate).timeIntervalSince1970 > ($1.valueForKey("date") as! NSDate).timeIntervalSince1970 }
+		if runs.count > 1 && runs[0].value(forKey: "date") != nil {
+			runs.sort () {($0.value(forKey: "date") as! NSDate).timeIntervalSince1970 > ($1.value(forKey: "date") as! NSDate).timeIntervalSince1970 }
 		}
 		tableView.reloadData()
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "Add Run" {
-			let addRunNavigationController = segue.destinationViewController as! UINavigationController
+			let addRunNavigationController = segue.destination as! UINavigationController
 			let addRunViewController = addRunNavigationController.topViewController as! AddRunViewController
 			addRunViewController.runs = runs
 		}

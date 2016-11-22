@@ -15,7 +15,7 @@ protocol FloatingButtonDelegate: class {
 
 class FloatingButton: UIView, UIGestureRecognizerDelegate {
     
-    let colour = UIColor.blackColor()
+    let colour = UIColor.black
     weak var delegate:FloatingButtonDelegate?
     var viewRepresenting : viewRepresentingOptions?
     
@@ -36,30 +36,30 @@ class FloatingButton: UIView, UIGestureRecognizerDelegate {
         self.backgroundColor = colour
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize: CGSize {
         return CGSize(width: 200, height: 200)
     }
     
     func changeViewRepresenting(viewRepresenting: viewRepresentingOptions) {
         if viewRepresenting == viewRepresentingOptions.NewRun {
-            let newRunTap = UITapGestureRecognizer(target: self, action: #selector(newRunTapped))
+            let newRunTap = UITapGestureRecognizer(target: self, action: #selector(self.newRunTapped))
             newRunTap.delegate = self
             self.addGestureRecognizer(newRunTap)
         }
         if viewRepresenting == viewRepresentingOptions.EnterRunData {
-            let addRunTap = UITapGestureRecognizer(target: self, action: #selector(addRunTapped))
+            let addRunTap = UITapGestureRecognizer(target: self, action: #selector(self.addRunTapped))
             addRunTap.delegate = self
             self.addGestureRecognizer(addRunTap)
         }
     }
     
     func addRunTapped(sender: UITapGestureRecognizer? = nil) {
-        delegate?.buttonWasTapped(self.delegate!, button: FloatingButton.viewRepresentingOptions.EnterRunData)
+        delegate?.buttonWasTapped(sender: self.delegate!, button: FloatingButton.viewRepresentingOptions.EnterRunData)
         //Dismiss view
     }
     
     func newRunTapped(sender: UITapGestureRecognizer? = nil) {
-        delegate?.buttonWasTapped(self.delegate!, button: FloatingButton.viewRepresentingOptions.NewRun)
+        delegate?.buttonWasTapped(sender: self.delegate!, button: FloatingButton.viewRepresentingOptions.NewRun)
         //Dismiss view
     }
 }

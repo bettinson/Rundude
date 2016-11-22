@@ -18,12 +18,12 @@ class TimeFormatter: NSObject {
         super.init()
     }
     
-    func changeText(changeString: String) -> String {
+    func changeText(_ changeString: String) -> String {
         //Assumes string is a number
         var finalText = ""
         
         var newString = changeString
-        newString = String(changeString.characters.reverse())
+        newString = String(changeString.characters.reversed())
         
         if newString.characters.count > 0 && hourFormattingPattern.characters.count > 0 {
             let tempString = newString as String
@@ -34,15 +34,15 @@ class TimeFormatter: NSObject {
             var tempIndex = tempString.startIndex
             
             while !stop {
-                let formattingPatternRange = formatterIndex ..< formatterIndex.advancedBy(1)
-                if hourFormattingPattern.substringWithRange(formattingPatternRange) != String (replacementChar) {
-                    finalText = finalText.stringByAppendingString(hourFormattingPattern.substringWithRange(formattingPatternRange))
+                let formattingPatternRange = formatterIndex ..< newString.index(formatterIndex, offsetBy: 1)
+                if hourFormattingPattern.substring(with: formattingPatternRange) != String (replacementChar) {
+                    finalText = finalText.appendingFormat(hourFormattingPattern.substring(with: formattingPatternRange))
                 } else if tempString.characters.count > 0 {
-                    let pureStringRange:Range = tempIndex ..< tempIndex.advancedBy(1)
-                    finalText = finalText.stringByAppendingString(tempString.substringWithRange(pureStringRange))
-                    tempIndex = tempIndex.successor()
+                    let pureStringRange:Range = tempIndex ..< finalText.index(tempIndex, offsetBy: 1)
+                    finalText = finalText.appendingFormat(tempString.substring(with: pureStringRange))
+                    tempIndex = finalText.index(after: tempIndex)
                 }
-                formatterIndex = formatterIndex.successor()
+                formatterIndex = finalText.index(after: formatterIndex)
                 
                 if formatterIndex >= hourFormattingPattern.endIndex || tempIndex >= tempString.endIndex {
                     stop = true
@@ -50,7 +50,7 @@ class TimeFormatter: NSObject {
             }
         }
         
-        finalText = String(finalText.characters.reverse())
+        finalText = String(finalText.characters.reversed())
         
         return finalText
     }
